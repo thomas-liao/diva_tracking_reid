@@ -28,51 +28,6 @@ If you use any of the provided code, please cite:
 
 For convenience, we provide the pretrained weights for our TriNet TensorFlow model, trained on Market-1501 using the code from this repository and the settings form our paper. The TensorFlow checkpoint can be downloaded in the [release section](https://github.com/VisualComputingInstitute/triplet-reid/releases/tag/250eb1).
 
-
-# Pretrained Theano models
-
-We provide the exact TriNet model used in the paper, which was implemented in
-[Theano](http://deeplearning.net/software/theano/install.html)
-and
-[Lasagne](http://lasagne.readthedocs.io/en/latest/user/installation.html).
-
-As a first step, download either of these pre-trained models:
-- [TriNet trained on MARS](https://omnomnom.vision.rwth-aachen.de/data/trinet-mars.npz) (md5sum: `72fafa2ee9aa3765f038d06e8dd8ef4b`)
-- [TriNet trained on Market1501](https://omnomnom.vision.rwth-aachen.de/data/trinet-market1501.npz) (md5sum: `5353f95d1489536129ec14638aded3c7`)
-
-Next, create a file (`files.txt`) which contains the full path to the image files you want to embed, one filename per line, like so:
-
-```
-/path/to/file1.png
-/path/to/file2.jpg
-```
-
-Finally, run the `trinet_embed.py` script, passing both the above file and the pretrained model file you want to use, like so:
-
-```
-python trinet_embed.py files.txt /path/to/trinet-mars.npz
-```
-
-And it will output one comma-separated line for each file, containing the filename followed by the embedding, like so:
-
-```
-/path/to/file1.png,-1.234,5.678,...
-/path/to/file2.jpg,9.876,-1.234,...
-```
-
-You could for example redirect it to a file for further processing:
-
-```
-python trinet_embed.py files.txt /path/to/trinet-market1501.npz >embeddings.csv
-```
-
-You can now do meaningful work by comparing these embeddings using the Euclidean distance, for example, try some K-means clustering!
-
-A couple notes:
-- The script depends on [Theano](http://deeplearning.net/software/theano/install.html), [Lasagne](http://lasagne.readthedocs.io/en/latest/user/installation.html) and [OpenCV Python](http://opencv.org/) (`pip install opencv-python`) being correctly installed.
-- The input files should be crops of a full person standing upright, and they will be resized to `288x144` before being passed to the network.
-
-
 # Training your own models
 
 If you want more flexibility, we now provide code for training your own models.
