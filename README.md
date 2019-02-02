@@ -1,6 +1,6 @@
 # Triplet-based Person Re-Identification
 
-Modification based on [In Defense of the Triplet Loss for Person Re-Identification] and some modification has been made suitable for DIVA project.
+Modification based on [In Defense of the Triplet Loss for Person Re-Identification](https://arxiv.org/abs/1703.07737) and some modification has been made suitable for DIVA project.
 
 Code for reproducing the results of our [In Defense of the Triplet Loss for Person Re-Identification](https://arxiv.org/abs/1703.07737) paper.
 
